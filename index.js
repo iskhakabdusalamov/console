@@ -14,14 +14,14 @@ const personalMovieDB = {
       numberOfFilms == null ||
       isNaN(numberOfFilms)
     ) {
-      numberOfFilms = +prompt("Сколько фильмов вы уже посмотрели?", "");
+      numberOfFilms = prompt("Сколько фильмов вы уже посмотрели?", "");
     }
     personalMovieDB.count = numberOfFilms;
   },
   rememberMyFilms: () => {
     for (let i = 0; i < 2; i++) {
       const a = prompt("Один из последних просмотренных фильмов?", "");
-      const b = +prompt("На сколько оцените его?", "");
+      const b = prompt("На сколько оцените его?", "");
 
       if (a !== "" && b !== "" && a !== null && b !== null && a.length <= 50) {
         personalMovieDB.movies[a] = b;
@@ -56,11 +56,9 @@ const personalMovieDB = {
       console.log("Произошла ошибка");
     }
   },
-  showMyDB: () => {
-    if (!personalMovieDB.private) {
-      console.log(personalMovieDB.private);
-    } else {
-      console.log("Данные приватны и не могут быть показаны.");
+  showMyDB: (hidden) => {
+    if (!hidden) {
+      console.log(personalMovieDB);
     }
   },
   toggleVisibleMyDB: () => {
