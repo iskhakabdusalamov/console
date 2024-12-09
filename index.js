@@ -52,10 +52,8 @@ const personalMovieDB = {
       console.log("Произошла ошибка");
     }
   },
-  showMyDB: (hidden) => {
-    if (!hidden) {
-      console.log(personalMovieDB);
-    }
+  showMyDB: () => {
+    !personalMovieDB.private ? console.log(personalMovieDB) : null;
   },
   toggleVisibleMyDB: () => {
     personalMovieDB.private = !personalMovieDB.private;
